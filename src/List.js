@@ -32,6 +32,20 @@ class List extends Component {
         })
     }
 
+    handleDelete =(id)=> {
+        // console.log(id)
+        this.setState((prevState)=> {
+            const newProfileState = prevState.profiles.filter(profile => profile.id !== id)
+
+            return{
+                profiles: newProfileState
+            }
+
+        })
+    
+    }
+
+
     returnProfileCards(){
         return this.state.profiles.map((profile) => {
             return <ProfileCard 
@@ -41,18 +55,14 @@ class List extends Component {
             age={profile.age} 
             bio={profile.bio} 
             likes= {parseInt(profile.likes)}
-            handleClick= {this.handleClick} />
+            handleOnClick= {this.handleClick}
+            handleOnDelete={this.handleDelete}
+             />
                 
         })
     }
 
-    // handleDelete =(e)=>{
-    //     console.log("submitted")
-    //     e.preventDefault()
-      
-
-    // }
-
+    
 
     addNewProfile=( data) => {
         const newProfile = {
@@ -71,12 +81,13 @@ class List extends Component {
     }
 
     render() {
+
+
         return (
             <div>
                 <h1> Book Face </h1>
                 <ProfileForm 
                 handleOnSubmit ={this.addNewProfile}
-
                 /> 
                 {this.returnProfileCards()}
 

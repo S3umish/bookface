@@ -3,14 +3,23 @@ import React from 'react'
 
 
 
-export default function ProfileCard(props) {
+export default function ProfileCard({id, name, age, bio, likes, handleOnClick, handleOnDelete}) {
+
+    const onDelete = function(){
+        handleOnDelete(id)
+    }
+
+    
+
     return (
         <div>
-            <h1>{props.name}</h1>
-            <p>{props.age}</p>
-            <p>{props.bio}</p>
-            <p>Likes: {props.likes}</p>
-            <button onClick={()=>props.handleClick(props.id)}>Like</button>
+            <h1>{name}</h1>
+            <p>{age}</p>
+            <p>{bio}</p>
+            <p>Likes:{likes}</p>
+            <button onClick={()=> handleOnClick(id)}>Like</button>
+            <br></br>
+            <button onClick= {onDelete}>Delete'X'</button>
         </div>
     )
 }
