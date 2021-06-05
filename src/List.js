@@ -1,4 +1,14 @@
+
+import {
+    BrowserRouter as 
+    
+    // Switch,
+    Route,
+    
+  } from "react-router-dom";
+
 import React, { Component } from 'react';
+
 import ProfileCard from './ProfileCard'
 import ProfileForm from './ProfileForm'
 
@@ -40,9 +50,7 @@ class List extends Component {
             return{
                 profiles: newProfileState
             }
-
-        })
-    
+        })   
     }
 
 
@@ -56,7 +64,7 @@ class List extends Component {
             bio={profile.bio} 
             likes= {parseInt(profile.likes)}
             handleOnClick= {this.handleClick}
-            handleOnDelete={this.handleDelete}
+            handleOnDelete={this.handleDelete} 
              />
                 
         })
@@ -65,9 +73,9 @@ class List extends Component {
     
 
     addNewProfile=( data) => {
-        const newProfile = {
-            // key: data.id,
-            id: this.state.profiles.length + 1,
+        console.log(data)
+        const newProfile = { 
+            id: this.state.profiles.length + 1, //hacky fix as there is no backend
             name: data.name,
             age: data.age,
             bio: data.bio,
@@ -81,16 +89,21 @@ class List extends Component {
     }
 
     render() {
-
-
         return (
-            <div>
-                <h1> Book Face </h1>
-                <ProfileForm 
-                handleOnSubmit ={this.addNewProfile}
-                /> 
-                {this.returnProfileCards()}
+            <div> 
+                <Route exact path="/profiles">
+                    <h1>All Profiles</h1>
+                    {this.returnProfileCards()}
+                </Route>
 
+    
+
+                <Route exact path ="/profiles/new">
+                    <h1>BookFace Form</h1>
+                        <ProfileForm 
+                        handleOnSubmit={this.addNewProfile}/>
+                </Route>
+            
             </div>
         );
     }

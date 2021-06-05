@@ -1,15 +1,12 @@
 import React from 'react'
 
 
-
-
 export default function ProfileCard({id, name, age, bio, likes, handleOnClick, handleOnDelete}) {
 
     const onDelete = function(){
         handleOnDelete(id)
     }
 
-    
 
     return (
         <div>
