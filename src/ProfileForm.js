@@ -19,22 +19,23 @@ class ProfileForm extends Component {
     }
 
     handleSubmit = (e) =>{
-        e.preventDefault()
+        e.preventDefault()  
        this.props.handleOnSubmit(this.state)
-       this.setState({
-           name: "",
-           bio: "",
-           age: "",
-           likes: ""
-       })
+      
+    //    this.setState({
+    //        name: "",
+    //        bio: "",
+    //        age: "",
+    //        likes: ""
+    //    })
     
     }
 
     render() {
-
+        console.log(this.state)
         return (
             <div>
-            <form onSubmit ={this.handleSubmit}>
+            <form onSubmit = {this.handleSubmit}>
                 <div>
                 <label> Name:</label>
                 <input type="text"

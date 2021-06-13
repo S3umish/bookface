@@ -1,4 +1,5 @@
-
+// import styles from '../styles/styles.module.css';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 import {
   BrowserRouter as Router,
@@ -10,7 +11,7 @@ import {
 import './App.css';
 import NavBar from './NavBar'
 import About from './About'
-import List from './List'
+import ProfileContainer from './ProfileContainer'
 import ProfileForm from "./ProfileForm";
 
 function App() {
@@ -20,19 +21,20 @@ function App() {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path="/about">
+          <Route exact path="/">
             <About />
           </Route> 
           
 
-          <Route exact path="/profiles">
-            <List />
+          <Route exact path="/profiles" component={(routeInfo) => 
+            <ProfileContainer routeData={routeInfo} />}>
           </Route> 
           
 
           <Route exact path="/profiles/new">
             <ProfileForm />
-          </Route>
+          </Route> 
+    
        
           </Switch>
         </div>
