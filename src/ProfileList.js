@@ -13,7 +13,7 @@
   // add route
   // link to show page 
 
-  const ProfileList = (id, name, age, bio, likes) => {
+  // const ProfileList = (id, name, age, bio, likes) => {
 
     // const renderProfiles = () => props.profiles.map((profile)=> 
     // <li > key={profile.id}<Link to={`/profiles/${profile.id}`}></Link>{profile.name}</li>)
@@ -26,10 +26,10 @@
     //           </ul>
     //       </div>
     //   )
-  }
+  // }
   
 
-  export default ProfileList
+  // export default ProfileList
 
 
   

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class ProfileForm extends Component {
 
@@ -20,19 +21,20 @@ class ProfileForm extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault()  
-       this.props.handleOnSubmit(this.state)
+        this.props.addProfile(this.state)
+    //    this.props.handleOnSubmit(this.state)
       
-    //    this.setState({
-    //        name: "",
-    //        bio: "",
-    //        age: "",
-    //        likes: ""
-    //    })
+       this.setState({
+           name: "",
+           bio: "",
+           age: "",
+           likes: ""
+       })
     
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div>
             <form onSubmit = {this.handleSubmit}>
@@ -88,5 +90,12 @@ class ProfileForm extends Component {
         
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addProfile: (profile) => dispatch({type: 'ADD_PROFILE', payload: profile})
+    }
 
-export default ProfileForm;
+}
+
+
+export default connect (null, mapDispatchToProps)(ProfileForm);

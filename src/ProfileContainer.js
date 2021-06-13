@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
 
 import ProfileCard from './ProfileCard'
 import ProfileForm from './ProfileForm'
-import ProfileList from './ProfileList'
+// import ProfileList from './ProfileList'
 
 
 
@@ -81,16 +81,17 @@ class ProfileContainer extends Component {
     // }
 
     returnProfileCards(){
+        // debugger
         return this.state.profiles.map((profile) => {
             return <ProfileCard 
-            key={profile.id} 
-            id= {profile.id}
+            key={profile.name} 
+            // id= {profile.id}
             name={profile.name}
             age={profile.age} 
             bio={profile.bio} 
-            likes= {parseInt(profile.likes)}
-            handleOnClick= {this.handleClick}
-            handleOnDelete={this.handleDelete} 
+            // likes= {parseInt(profile.likes)}
+            // handleOnClick= {this.handleClick}
+            // handleOnDelete={this.handleDelete} 
              />
                 
         })
@@ -109,7 +110,7 @@ class ProfileContainer extends Component {
 
                 <Route exact path="/profiles">
                     <h1>All Profiles</h1>
-                    <ProfileList />
+                    {/* <ProfileList /> */}
                         {this.returnProfileCards()}
                 
                      
